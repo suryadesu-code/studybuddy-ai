@@ -34,7 +34,7 @@
 | Layer | Teknologi |
 |-------|-----------|
 | Frontend | HTML5, Vanilla CSS, JavaScript (ES6+) |
-| AI Engine | Google Gemini API (`gemini-2.0-flash`) |
+| AI Engine | Google Gemini API (`gemini-3.5-flash`) |
 | Fonts | Google Fonts (Inter) |
 | Storage | LocalStorage (API key) |
 | Deployment | Static files (GitHub Pages compatible) |
