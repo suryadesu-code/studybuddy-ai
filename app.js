@@ -3,7 +3,7 @@
    =================================================== */
 
 // ─── Configuration ───────────────────────────────────
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent';
 
 const SYSTEM_PROMPTS = {
   explain: `Kamu adalah "StudyBuddy", asisten belajar AI yang ramah, sabar, dan sangat membantu. 
