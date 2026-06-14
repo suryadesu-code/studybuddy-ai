@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StudyBuddy AI — Asisten belajar berbasis AI yang membantu menjelaskan materi, membuat quiz, dan merangkum teks.">
+  <meta name="keywords" content="AI, chatbot, study, belajar, quiz, rangkuman, pendidikan, asisten belajar">
+  <meta name="author" content="StudyBuddy AI">
+  <title>StudyBuddy AI — Asisten Belajar Cerdas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+</head>
+<body>
+
+  <div class="app" id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-brand">
+        <div class="header-logo">🧠</div>
+        <div>
+          <div class="header-title">StudyBuddy AI</div>
+          <div class="header-subtitle">Teman Belajar Cerdasmu</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn-icon" id="btn-clear" title="Bersihkan Chat">🗑️</button>
+        <button class="btn-icon" id="btn-settings" title="Pengaturan API Key">⚙️</button>
+      </div>
+    </header>
+
+    <!-- Mode Selector -->
+    <div class="mode-selector">
+      <button class="mode-btn active" data-mode="explain" id="mode-explain">
+        <span class="mode-icon">📖</span>
+        <span>Explain</span>
+      </button>
+      <button class="mode-btn" data-mode="quiz" id="mode-quiz">
+        <span class="mode-icon">📝</span>
+        <span>Quiz</span>
+      </button>
+      <button class="mode-btn" data-mode="summarize" id="mode-summarize">
+        <span class="mode-icon">📋</span>
+        <span>Summarize</span>
+      </button>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="chat-area" id="chat-area">
+      <!-- Welcome Screen -->
+      <div class="welcome-screen" id="welcome-screen">
+        <div class="welcome-avatar">🧠</div>
+        <h1 class="welcome-title">Halo! Aku StudyBuddy 👋</h1>
+        <p class="welcome-desc">
+          Aku asisten belajar AI-mu. Pilih mode di atas lalu tanyakan apapun — aku siap bantu kamu belajar dengan cara yang seru dan mudah dipahami!
+        </p>
+        <div class="welcome-chips">
+          <button class="welcome-chip" data-prompt="Jelaskan tentang fotosintesis dengan analogi sederhana">📖 Jelaskan fotosintesis</button>
+          <button class="welcome-chip" data-prompt="Buatkan 5 soal quiz tentang sejarah kemerdekaan Indonesia">📝 Quiz sejarah Indonesia</button>
+          <button class="welcome-chip" data-prompt="Rangkum konsep dasar machine learning dalam 5 poin">📋 Rangkum machine learning</button>
+          <button class="welcome-chip" data-prompt="Jelaskan rumus pythagoras dan berikan contoh soal">📖 Rumus Pythagoras</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area">
+      <div class="input-wrapper">
+        <textarea
+          class="chat-input"
+          id="chat-input"
+          placeholder="Ketik pertanyaanmu di sini..."
+          rows="1"
+        ></textarea>
+        <button class="btn-send" id="btn-send" title="Kirim Pesan">
+          ➤
+        </button>
+      </div>
+      <p class="input-hint">Tekan <kbd>Enter</kbd> untuk kirim · <kbd>Shift+Enter</kbd> untuk baris baru</p>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal-overlay" id="settings-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">⚙️ Pengaturan</h2>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+
+      <div id="api-status-container"></div>
+
+      <div class="form-group">
+        <label class="form-label" for="api-key-input">Google Gemini API Key</label>
+        <input
+          type="password"
+          class="form-input"
+          id="api-key-input"
+          placeholder="Masukkan API Key kamu..."
+        >
+        <p class="form-hint">
+          Dapatkan API Key gratis di 
+          <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio ↗</a>. 
+          Key disimpan di browser kamu saja (localStorage).
+        </p>
+      </div>
+
+      <button class="btn-primary" id="btn-save-key">💾 Simpan API Key</button>
+      <button class="btn-secondary" id="btn-remove-key">Hapus API Key</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
